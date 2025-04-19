@@ -141,7 +141,7 @@ void eraseMap(HashMap * map,  char * key) {
         }
 
         i = (i + 1) % map->capacity;
-        if ( i == inicial_i) return NULL;
+        if ( i == inicial_i) return;
     }
 }
 
