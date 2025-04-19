@@ -122,13 +122,6 @@ HashMap * createMap(long capacity) {
     return map;
 }
 
-/*
-
-Está función elimina el dato correspondiente a la clave key. 
-Para hacerlo debe buscar el dato y luego marcarlo para que no 
-sea válido. No elimine el par, sólo invalídelo asignando NULL 
-a la clave (pair->key=NULL). Recuerde actualizar la variable size.
-*/
 void eraseMap(HashMap * map,  char * key) {    
     long i = hash(key, map->capacity);
     long inicial_i = i;
@@ -171,12 +164,16 @@ arreglo buckets a partir índice current. Recuerde actualizar
 el índice.
 */
 Pair * firstMap(HashMap * map) {
-
+    for (long i = 0 ; i < map->capacity ; i++) {
+        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+            return map->buckets[i];
+        }
+    }
     return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
-
+    
     return NULL;
 }
 

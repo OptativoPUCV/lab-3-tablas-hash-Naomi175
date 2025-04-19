@@ -90,3 +90,9 @@ sá., 19 de abr. de 2025 12:23:02:
  tests:  11|2
 total_score: 50/70
 d4757a5
+sá., 19 de abr. de 2025 12:44:29: 
+ hashmap.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
+ tests:  11|2
+total_score: 50/70
+3bee451
