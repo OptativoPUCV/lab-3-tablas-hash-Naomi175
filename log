@@ -96,3 +96,9 @@ sá., 19 de abr. de 2025 12:44:29:
  tests:  11|2
 total_score: 50/70
 3bee451
+sá., 19 de abr. de 2025 12:46:13: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+ tests:  13|2
+total_score: 50/70
+dc8cc09
