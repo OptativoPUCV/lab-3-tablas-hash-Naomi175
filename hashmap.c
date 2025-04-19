@@ -90,7 +90,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     long i = hash(key, map->capacity);
     long aux_i = i;
 
-    while (map->buckets[i] != NULL) {
+    while (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
         if (is_equal(map->buckets[i]->key, key)) return;
         i = (i + 1) % map->capacity;
         if ( i == aux_i) return;
@@ -100,7 +100,6 @@ void insertMap(HashMap * map, char * key, void * value) {
     map->size++;
     map->current = i;
 }
-
 
 /*
 Implemente la función void enlarge(HashMap * map). Esta función 
