@@ -114,3 +114,9 @@ sá., 19 de abr. de 2025 13:17:28:
  tests:  17|0
 total_score: 70/70
 3ad30c5
+sá., 19 de abr. de 2025 13:20:50: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|0
+total_score: 70/70
+72ced90
