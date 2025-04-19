@@ -87,8 +87,18 @@ No inserte claves repetidas. Recuerde que el arreglo es circular.
 Recuerde actualizar la variable size.
 */
 void insertMap(HashMap * map, char * key, void * value) {
+    long i = hash(key, map->capacity);
+    long aux_i = i;
 
+    while (map->buckets[i] != NULL) {
+        if (is_equal(map->buckets[i]->key, key)) return;
+        i = (i + 1) % map->capacity;
+        if ( i == aux_i) return;
+    }
 
+    map->buckets[i] = createPair(key, value);
+    map->size++;
+    map->current = i;
 }
 
 
@@ -122,12 +132,6 @@ void enlarge(HashMap * map) {
 
 }
 
-/*
- 
-inicializa el arreglo de buckets con casillas nulas, 
-inicializa el resto de variables y retorna el mapa. 
-Inicialice el índice current a -1.
-*/
 HashMap * createMap(long capacity) {
     HashMap * map = (HashMap *)malloc(sizeof(HashMap));
     map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
