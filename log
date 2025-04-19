@@ -8,3 +8,9 @@ sá., 19 de abr. de 2025 11:10:15:
  tests:  0|6
 total_score: 0/70
 f028909
+sá., 19 de abr. de 2025 11:12:50: 
+ hashmap.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+ tests:  1|5
+total_score: 10/70
+3735c2b
