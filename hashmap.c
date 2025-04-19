@@ -66,34 +66,14 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
-/*
-Implemente la función void insertMap(HashMap * map, char * key,
- void * value). Esta función inserta un nuevo dato (key,value) 
- en el mapa y actualiza el índice current a esa posición.
-
-Recuerde que para insertar un par (clave,valor) debe:
-
-a - Aplicar la función hash a la clave para obtener la posición 
-donde debería insertar el nuevo par.
-
-b - Si la casilla se encuentra ocupada, avance hasta una casilla 
-disponible (método de resolución de colisiones). Una casilla 
-disponible es una casilla nula, pero también una que tenga un par 
-inválido (key==NULL).
-
-c - Ingrese el par en la casilla que encontró.
-
-No inserte claves repetidas. Recuerde que el arreglo es circular. 
-Recuerde actualizar la variable size.
-*/
 void insertMap(HashMap * map, char * key, void * value) {
     long i = hash(key, map->capacity);
-    long aux_i = i;
+    long inicial_i = i;
 
     while (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
         if (is_equal(map->buckets[i]->key, key)) return;
         i = (i + 1) % map->capacity;
-        if ( i == aux_i) return;
+        if ( i == inicial_i) return;
     }
 
     map->buckets[i] = createPair(key, value);
@@ -159,21 +139,31 @@ Implemente la función Pair * searchMap(HashMap * map, char * key),
 la cual retorna el Pair asociado a la clave ingresada. Recuerde que 
 para buscar el par debe:
 
-a - Usar la función hash para obtener la posición donde puede 
+    a - Usar la función hash para obtener la posición donde puede 
 encontrarse el par con la clave.
 
-b - Si la clave no se encuentra avance hasta encontrarla (método 
+    b - Si la clave no se encuentra avance hasta encontrarla (método 
 de resolución de colisiones).
 
-c - Si llega a una casilla nula, retorne NULL inmediatamente (no 
+    c - Si llega a una casilla nula, retorne NULL inmediatamente (no 
 siga avanzando, la clave no está).
 
 Recuerde actualizar el índice current a la posición encontrada. 
 Recuerde que el arreglo es circular.
 */
 Pair * searchMap(HashMap * map,  char * key) {   
+    long i = hash(key, map->capacity);
+    long inicial_i = i;
 
+    while (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+        if (is_equal(map->buckets[i]->key, key)) {
+            map->current = i;
+            return map->buckets[i];
+        }
 
+        i = (i + 1) % map->capacity;
+        if ( i == inicial_i) return NULL;
+    }
     return NULL;
 }
 
