@@ -130,9 +130,9 @@ Inicialice el índice current a -1.
 */
 HashMap * createMap(long capacity) {
     HashMap * map = (HashMap *)malloc(sizeof(HashMap));
-    //map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
-    map->buckets = (Pair **)malloc(capacity * sizeof(Pair *));
-    for (int i = 0; i < capacity; i++) { map->buckets[i] = NULL; }
+    map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
+    //map->buckets = (Pair **)malloc(capacity * sizeof(Pair *));
+    //for (int i = 0; i < capacity; i++) { map->buckets[i] = NULL; }
     map->size = 0;
     map->capacity = capacity;
     map->current = -1;
